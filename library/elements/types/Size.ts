@@ -1,0 +1,1 @@
+export type Size = { xSize: number, ySize: number };
