@@ -10,7 +10,7 @@ export class SectionElementImplementation implements Section, Element {
     size: Size;
 
     content: Array<Element>;
-    styles: Partial<CSSStyleDeclaration>;
+    styles?: Partial<CSSStyleDeclaration>;
 
     constructor(sectionProps: SectionProps) {
         Object.keys(sectionProps).forEach(k =>

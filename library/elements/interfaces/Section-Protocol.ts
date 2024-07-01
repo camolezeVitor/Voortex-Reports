@@ -1,6 +1,6 @@
 import { Element } from "./Element-Protocol";
 
 export interface Section {
-    styles: Partial<CSSStyleDeclaration>;
+    styles?: Partial<CSSStyleDeclaration>;
     content: Array<Element>;
 }

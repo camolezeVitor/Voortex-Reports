@@ -10,7 +10,7 @@ export class ParagraphElementImplementation implements Paragraph, Element {
     size: Size;
     
     content: String;
-    styles: Partial<CSSStyleDeclaration>;
+    styles?: Partial<CSSStyleDeclaration>;
 
     constructor (paragraphProps: ParagraphProps) {
         Object.keys(paragraphProps).forEach(

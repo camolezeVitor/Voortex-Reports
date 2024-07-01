@@ -5,7 +5,7 @@ import { PageProps } from "../types/props/Page-Props";
 import { Position } from "../types/shared/Position";
 import { Size } from "../types/shared/Size";
  
-class PageElementImplementation implements Page, Element {
+export class PageElementImplementation implements Page, Element {
     id: string = "page";
     position: Position;
     size: Size;
