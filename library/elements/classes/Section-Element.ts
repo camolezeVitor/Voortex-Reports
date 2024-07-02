@@ -5,16 +5,16 @@ import { Position } from "../types/shared/Position";
 import { Size } from "../types/shared/Size";
 
 export class SectionElementImplementation implements Section, Element {
-    id: string;
-    position: Position;
-    size: Size;
+    id!: string;
+    position!: Position;
+    size!: Size;
 
-    content: Array<Element>;
+    content!: Array<Element>;
     styles?: Partial<CSSStyleDeclaration>;
 
     constructor(sectionProps: SectionProps) {
         Object.keys(sectionProps).forEach(k =>
-            this[k as keyof SectionElementImplementation] = sectionProps[k]
+            (this[k as keyof SectionElementImplementation] as any) = sectionProps[k as keyof SectionProps]
         )
     }
 

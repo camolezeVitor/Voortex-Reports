@@ -7,16 +7,16 @@ import { Size } from "../types/shared/Size";
  
 export class PageElementImplementation implements Page, Element {
     id: string = "page";
-    position: Position;
-    size: Size;
+    position!: Position;
+    size!: Size;
 
-    content: Array<Element>;
+    content!: Array<Element>;
     style?: Partial<CSSStyleDeclaration>;
-    pageSize: PageSize;
+    pageSize!: PageSize;
 
     constructor(pageProps: PageProps) {
         Object.keys(pageProps).forEach(
-            k => this[k as keyof PageElementImplementation] = pageProps[k]
+            k => (this[k as keyof PageElementImplementation] as unknown) = pageProps[k as keyof PageProps]
         );
     }
 

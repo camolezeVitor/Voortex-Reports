@@ -6,15 +6,15 @@ import { Size } from "../types/shared/Size";
 
 export class ParagraphElementImplementation implements Paragraph, Element {
     id: string = "paragraph";
-    position: Position;
-    size: Size;
+    position!: Position;
+    size!: Size;
     
-    content: String;
+    content!: String;
     styles?: Partial<CSSStyleDeclaration>;
 
     constructor (paragraphProps: ParagraphProps) {
         Object.keys(paragraphProps).forEach(
-            k => this[k as keyof ParagraphElementImplementation] = paragraphProps[k]
+            k => (this[k as keyof ParagraphElementImplementation] as any) = paragraphProps[k as keyof ParagraphProps]
         );
     }
     

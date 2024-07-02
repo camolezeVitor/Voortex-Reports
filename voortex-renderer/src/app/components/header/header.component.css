@@ -1,0 +1,62 @@
+:host {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  flex-direction: row;
+  color: white;
+  font-family: system-ui !important;
+}
+
+header {
+  width: 80%;
+  background-color: rgb(29, 29, 29);
+  height: 80px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 0px 3px 3px #00000030;
+  display: flex;
+  flex-direction: row;
+}
+
+.report-id {
+  width: 240px;
+  text-align: center;
+  padding: 20px;
+}
+
+.button-list {
+  flex: 1 1;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding: 20px;
+  gap: 20px;
+}
+
+.header-button {
+  height: 40px;
+  background-color: white;
+  border-radius: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  border: 0;
+}
+
+@media (max-width: 500px) {
+  header {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-list {
+    padding: 0px;
+    padding-bottom: 20px;
+  }
+  .report-id {
+    padding: 0px;
+  }
+}
