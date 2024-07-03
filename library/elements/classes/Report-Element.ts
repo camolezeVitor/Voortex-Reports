@@ -4,7 +4,7 @@ import { ReportProps } from "../types/props/Report-Props";
 
 export class ReportImplementation implements Report {
     name!: string | String | Symbol;
-    canDownload!: boolean;
+    canDownload: boolean = true;
     presetStyles?: unknown;
     content!: Array<Element>;
 

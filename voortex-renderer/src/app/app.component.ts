@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Report } from "@voortex-modules";
+import { REPORT } from "../../../example";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'voortex-renderer';
+  public report!: Report;
+
+  constructor () {
+    this.report = REPORT;
+  }
 }

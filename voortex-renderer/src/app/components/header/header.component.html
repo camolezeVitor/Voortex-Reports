@@ -1,10 +1,12 @@
 <header>
   <!-- Report identification -->
-  <section class="align-row-center report-id">
-    <p>Teste de Relatório muitcho legal</p>
+  <section class="report-id">
+    <p>{{report.name}}</p>
   </section>
   <section class="button-list">
-    <button class="header-button">Download</button>
-    <button class="header-button">Print</button>
+    @if (!report.canDownload == false) {
+      <button class="header-button">Download</button>
+      <button class="header-button">Print</button>
+    }
   </section>
 </header>

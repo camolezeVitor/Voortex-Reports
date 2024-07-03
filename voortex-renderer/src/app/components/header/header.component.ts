@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { ReportImplementation as Report } from "@voortex-modules";
+import { Report } from "@voortex-modules";
 
 @Component({
     selector: "app-header",
@@ -7,5 +7,5 @@ import { ReportImplementation as Report } from "@voortex-modules";
     styleUrl: "header.component.css" 
 })
 export class HeaderComponent {
-    @Input() report!: Report
+    @Input() report!: Report;
 }
