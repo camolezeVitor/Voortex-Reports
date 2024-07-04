@@ -8,6 +8,12 @@
   font-family: system-ui !important;
 }
 
+@media print {
+  :host {
+    display: none;
+  }
+}
+
 header {
   width: 80%;
   background-color: rgb(29, 29, 29);

@@ -8,4 +8,9 @@ import { Report } from "@voortex-modules";
 })
 export class HeaderComponent {
     @Input() report!: Report;
+
+    public printScreen() {
+        let docWindow = window;
+        docWindow.print();
+    }
 }

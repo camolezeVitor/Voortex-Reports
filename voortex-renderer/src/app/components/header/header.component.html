@@ -4,9 +4,8 @@
     <p>{{report.name}}</p>
   </section>
   <section class="button-list">
-    @if (!report.canDownload == false) {
-      <button class="header-button">Download</button>
-      <button class="header-button">Print</button>
+    @if (report.canDownload) {
+      <button class="header-button" (click)="printScreen()">Print</button>
     }
   </section>
 </header>
