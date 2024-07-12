@@ -1,5 +1,4 @@
 import { Type } from "@angular/core";
-import * as VOORTEXElements from "@voortex-modules";
 import { PageComponent } from "./page/page.component";
 
 /**
@@ -7,13 +6,16 @@ import { PageComponent } from "./page/page.component";
  * 
  * this file "components-map.ts" is used for mapping every single implementation
  * on the voortex lib, for applying a component to be used on the renderer
+ * 
+ * for using it, you can add your own components in the voortex-renderer/configs
  */
 
-const componentMap: Map<unknown, Type<any>> = new Map<unknown, Type<any>>();
+
+const componentMap: Map<string, Type<any>> = new Map<string, Type<any>>();
 
 // PAGE COMPONENT
-componentMap.set(VOORTEXElements.PageElementImplementation, PageComponent);
-
+componentMap.set("page", PageComponent);
 
 
 export { componentMap as VoortexComponentsMap };
+

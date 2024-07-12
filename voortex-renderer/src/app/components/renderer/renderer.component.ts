@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { Report } from "@voortex-modules";
 
 @Component({
     selector: "app-renderer",
@@ -6,5 +7,5 @@ import { Component } from "@angular/core";
     styleUrl: "renderer.component.css"
 })
 export class RendererComponent {
-    
+    @Input() report!: Report;   
 }
