@@ -1,12 +1,10 @@
-import { Page, Paragraph, createReport } from "./library/core/Voortex-Core";
+import { createReport } from "./library/core/Voortex-Core";
+
+let pessoas: Array<{nome: string, cpf: string}> = []
 
 export const REPORT = createReport({
-    name: "Saúde de Luiz Ricardo Begosso",
+    name: "Relatorio com lista de Pessoas",
     content: [
-        Page({pageSize: "A4",
-            content: [
-                Paragraph({content: "Teste"})
-            ]
-        })
+
     ]
 });
