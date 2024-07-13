@@ -1,0 +1,12 @@
+:host {
+  padding-top: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media print {
+  :host {
+    padding-top: 0px;
+  }
+}

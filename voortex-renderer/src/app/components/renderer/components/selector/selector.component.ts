@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, Input, Type, ViewChild, ViewContainerRef } from "@angular/core";
+import { AfterViewInit, Component, ComponentRef, Input, Type, ViewChild, ViewContainerRef } from "@angular/core";
 import { Element } from "@voortex-modules";
 import { VoortexComponentsMap } from "../components-map";
+import { RenderableComponent } from "../renderable/base/renderable-component";
 
 
 @Component({
@@ -19,7 +20,8 @@ export class SelectorComponent implements AfterViewInit {
 
     renderComponentByContent(content: Element) {
         const component: Type<any> = this.getComponentByElementContentId(content);
-        this.setSelectedComponentInTheContainer(component);   
+        const renderedComponentRef = this.setSelectedComponentInTheContainer(component);
+        this.setContentInComponentContent(renderedComponentRef, content);
     }
 
     getComponentByElementContentId(element: Element): Type<any> {
@@ -27,6 +29,13 @@ export class SelectorComponent implements AfterViewInit {
     }
 
     setSelectedComponentInTheContainer(component: Type<any>) {
-        this.containerUsedForHostingComponent.createComponent(component);
+        return this.containerUsedForHostingComponent.createComponent(component);
     }
+
+    setContentInComponentContent({instance}: ComponentRef<RenderableComponent>, content: Element) {
+        instance.content = content;
+        console.log(instance);
+    }
+
+
 }

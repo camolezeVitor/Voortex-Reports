@@ -1,5 +1,5 @@
 import { Type } from "@angular/core";
-import { PageComponent } from "./page/page.component";
+import { PageComponent } from "./renderable/page/page.component";
 
 /**
  * @author camolezeVitor
