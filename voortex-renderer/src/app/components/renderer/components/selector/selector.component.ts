@@ -1,6 +1,8 @@
-import { AfterViewInit, Component, ComponentRef, Input, Type, ViewChild, ViewContainerRef } from "@angular/core";
-import { Element } from "@voortex-modules";
+import { AfterViewInit, Component, ComponentRef, inject, Input, Type, ViewChild, ViewContainerRef } from "@angular/core";
+import { Element, StyledElement } from "@voortex-modules";
+import { StylerService } from "../../services/styler.service";
 import { VoortexComponentsMap } from "../components-map";
+import { RenderableComponentImplementation } from "../renderable/base/base.component";
 import { RenderableComponent } from "../renderable/base/renderable-component";
 
 
@@ -13,6 +15,7 @@ import { RenderableComponent } from "../renderable/base/renderable-component";
 export class SelectorComponent implements AfterViewInit {
     @ViewChild("genContainer", {read: ViewContainerRef}) containerUsedForHostingComponent!: ViewContainerRef; 
     @Input() content!: Element; 
+    private stylerService: StylerService = inject(StylerService);
 
     ngAfterViewInit(): void {
         this.renderComponentByContent(this.content);
@@ -22,6 +25,7 @@ export class SelectorComponent implements AfterViewInit {
         const component: Type<any> = this.getComponentByElementContentId(content);
         const renderedComponentRef = this.setSelectedComponentInTheContainer(component);
         this.setContentInComponentContent(renderedComponentRef, content);
+        this.setStyleInComponentInstance(renderedComponentRef, content)
     }
 
     getComponentByElementContentId(element: Element): Type<any> {
@@ -34,8 +38,12 @@ export class SelectorComponent implements AfterViewInit {
 
     setContentInComponentContent({instance}: ComponentRef<RenderableComponent>, content: Element) {
         instance.content = content;
-        console.log(instance);
     }
 
-
+    setStyleInComponentInstance({instance}: ComponentRef<RenderableComponentImplementation>, content: Element) {
+        const styles = (content as StyledElement).style
+        if (styles) {
+            this.stylerService.styleComponent(instance, styles);
+        }
+    }
 }
