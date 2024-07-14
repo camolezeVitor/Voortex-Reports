@@ -15,6 +15,7 @@ export class PageComponent extends RenderableComponentImplementation implements 
     }
 
     setPageSize() {
+        console.log(this.content);
         let pageSize: string = (this.content as any).pageSize;
 
         if (pageSize) { 

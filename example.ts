@@ -6,12 +6,9 @@ export const REPORT = createReport({
     name: "Relatorio com lista de Pessoas",
     content: [
         Page({pageSize: "A4", 
-            style: {
-                backgroundColor: "red",
-            },
             content: [ 
 
-            ]
-        })
+            ],
+        }),
     ]
 });

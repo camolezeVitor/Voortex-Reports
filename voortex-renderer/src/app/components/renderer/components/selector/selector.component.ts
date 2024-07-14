@@ -42,8 +42,6 @@ export class SelectorComponent implements AfterViewInit {
 
     setStyleInComponentInstance({instance}: ComponentRef<RenderableComponentImplementation>, content: Element) {
         const styles = (content as StyledElement).style
-        if (styles) {
-            this.stylerService.styleComponent(instance, styles);
-        }
+        this.stylerService.styleComponent(instance, styles);
     }
 }
