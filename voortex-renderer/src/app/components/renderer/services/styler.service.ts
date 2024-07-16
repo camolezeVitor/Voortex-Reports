@@ -6,7 +6,7 @@ import { RenderableComponentImplementation } from "../components/renderable/base
 })
 export class StylerService {
     
-    public styleComponent(component: RenderableComponentImplementation, style: Partial<CSSStyleDeclaration> | undefined) {
+    public async styleComponent(component: RenderableComponentImplementation, style: Partial<CSSStyleDeclaration> | undefined) {
         if (!style) {
             this.setDisplayPropertyOnBlock(component);
             return;

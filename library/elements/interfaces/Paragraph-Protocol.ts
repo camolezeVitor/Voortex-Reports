@@ -1,4 +1,4 @@
 export interface Paragraph {
-    styles?: Partial<CSSStyleDeclaration>;
+    style?: Partial<CSSStyleDeclaration>;
     content: String;
 }

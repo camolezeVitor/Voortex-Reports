@@ -5,6 +5,7 @@ export interface Element {
     id: string;
     position: Position;
     size: Size;
+    content: unknown | Array<Element> | Element;
 
     setElementDefaultProperties(element: unknown): void;
 }

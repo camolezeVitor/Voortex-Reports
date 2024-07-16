@@ -1,5 +1,6 @@
 import { Type } from "@angular/core";
 import { PageComponent } from "./renderable/page/page.component";
+import { ParagraphComponent } from "./renderable/paragraph/paragraph.component";
 
 /**
  * @author camolezeVitor
@@ -15,6 +16,7 @@ const componentMap: Map<string, Type<any>> = new Map<string, Type<any>>();
 
 // PAGE COMPONENT
 componentMap.set("page", PageComponent);
+componentMap.set("paragraph", ParagraphComponent)
 
 
 export { componentMap as VoortexComponentsMap };

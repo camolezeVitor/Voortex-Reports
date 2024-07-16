@@ -10,12 +10,15 @@ import { getPageSize } from "./utils/page-size";
 })
 export class PageComponent extends RenderableComponentImplementation implements AfterContentInit {
     
+    renderableContent: Array<Element> | null = null;
+
     ngAfterContentInit(): void {
+        console.log(this)
         this.setPageSize();
+        this.setRenderableContent();
     }
 
     setPageSize() {
-        console.log(this.content);
         let pageSize: string = (this.content as any).pageSize;
 
         if (pageSize) { 
@@ -23,5 +26,9 @@ export class PageComponent extends RenderableComponentImplementation implements 
             this.nativeElement['style']['width'] = String(size.xSize).concat("mm");
             this.nativeElement['style']['height'] = String(size.ySize).concat("mm");
         }
+    }
+
+    setRenderableContent() {
+        this.renderableContent = this.content?.content as Array<Element>;
     }
 }

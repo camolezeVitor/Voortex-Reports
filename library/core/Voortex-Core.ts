@@ -13,7 +13,7 @@ export function Page(props: Props.PageProps): Protocols.Element {
     return new Elements.PageElementImplementation(props);
 }
 
-export function Paragraph(props: Props.ParagraphProps): Protocols.Element {
+export function Paragraph(props: Props.ParagraphProps | string): Protocols.Element {
     return new Elements.ParagraphElementImplementation(props);
 }
 
