@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Report } from "@voortex-modules";
+import { Element, Report } from "@voortex-modules";
 import { REPORT } from "../../../example";
 
 @Component({
@@ -13,7 +13,13 @@ export class AppComponent {
   constructor () {
     this.report = REPORT;
     setTimeout(() => {
-      console.log(this.report);
+      this.report.content.forEach(pageElement => {
+        console.group(pageElement.id);
+        (pageElement.content as Array<Element>).forEach(element => {
+          element!.validationFunction!();
+        })
+        console.groupEnd();
+      })
     }, 5000);
   }
 }

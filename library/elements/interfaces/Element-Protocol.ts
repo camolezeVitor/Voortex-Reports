@@ -6,6 +6,7 @@ export interface Element {
     position: Position;
     size: Size;
     fatherSize?: Size;
+    fatherPosition?: Position;
     content: unknown | Array<Element> | Element;
     validationFunction?: Function | null;
 
