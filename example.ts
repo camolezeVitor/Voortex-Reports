@@ -14,7 +14,7 @@ export const REPORT = createReport({
                     },
                     content: "Lorem ipsum dolor sit amet, consectetur"
                 }),
-                Paragraph("Paragrafo teste contendo diversas coisas interessantes que contem mais de um tamanho desejado")
+                Paragraph("Paragrafo teste contendo diversas coisas interessantes que contem mais de um tamanho desejado, Paragrafo teste contendo diversas coisas interessantes que contem mais de um tamanho desejado, Paragrafo teste contendo diversas coisas interessantes que contem mais de um tamanho desejado, Paragrafo teste contendo diversas coisas interessantes que contem mais de um tamanho desejado, Paragrafo teste contendo diversas coisas interessantes que contem mais de um tamanho desejado, Paragrafo teste contendo diversas coisas interessantes que contem mais de um tamanho desejado, ")
             ],
         }),
     ]

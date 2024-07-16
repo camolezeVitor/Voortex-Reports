@@ -13,6 +13,7 @@ export class ParagraphElementImplementation implements Paragraph, Element {
     position!: Position;
     size!: Size;
     paragraphSpecs!: ParagraphSpecs;
+    fatherSize?: Size | undefined;
 
     content!: String;
     styles?: Partial<CSSStyleDeclaration>;
@@ -32,12 +33,21 @@ export class ParagraphElementImplementation implements Paragraph, Element {
     }
     
     setElementDefaultProperties(element: any): void {
+        const getParentOffset = () => {
+            const { offsetWidth, offsetHeight } = element.parentElement.parentElement;
+            return { offsetWidth, offsetHeight };
+        };
+        const { offsetHeight: fatherOffsetHeight, offsetWidth: fatherOffsetWidth} = getParentOffset();
+
         const computedStyle = getComputedStyle(element);
+        const { offsetWidth, offsetHeight } = element;
+
         let specs: ParagraphSpecs = {
             fontSize: Number(this.removeAnyCharactersInProperties(computedStyle.getPropertyValue("font-size")))
         }
+        this.fatherSize = { xSize: fatherOffsetWidth, ySize: fatherOffsetHeight };
+        this.size = { xSize: offsetWidth, ySize: offsetHeight };
         this.paragraphSpecs = specs;
-        console.log(this)
     }
 
 }

@@ -27,7 +27,6 @@ export class SelectorComponent implements AfterViewInit {
         const renderedComponentRef = this.setSelectedComponentInTheContainer(component);
         this.setContentInComponentContent(renderedComponentRef, content);
         await this.setStyleInComponentInstance(renderedComponentRef, content);
-        this.setComponentInstanceSizeForValidation(renderedComponentRef, this.elRef);
         this.setComponentInstanceAbleForValidation(renderedComponentRef);
     }
 
@@ -48,11 +47,6 @@ export class SelectorComponent implements AfterViewInit {
         this.stylerService.styleComponent(instance, styles);
     }
 
-    setComponentInstanceSizeForValidation({instance}: ComponentRef<RenderableComponentImplementation>, {nativeElement}: ElementRef) {
-        const { offsetWidth, offsetHeight } = nativeElement;
-        instance.size = { xSize: offsetWidth, ySize: offsetHeight };
-    }
-    
     setComponentInstanceAbleForValidation({instance}: ComponentRef<RenderableComponentImplementation>) {
         instance.isAbleForValidation.update(() => true);
     }

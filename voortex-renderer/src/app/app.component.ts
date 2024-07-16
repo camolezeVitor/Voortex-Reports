@@ -12,5 +12,8 @@ export class AppComponent {
 
   constructor () {
     this.report = REPORT;
+    setTimeout(() => {
+      console.log(this.report);
+    }, 5000);
   }
 }
