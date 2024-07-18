@@ -15,7 +15,7 @@ export class ParagraphElementImplementation implements Paragraph, Element {
     paragraphSpecs!: ParagraphSpecs;
     fatherSize?: Size | undefined;
     fatherPosition?: Position | undefined;
-    
+    lineHeigth!: number;
     content!: String;
     styles?: Partial<CSSStyleDeclaration>;
 
@@ -46,7 +46,7 @@ export class ParagraphElementImplementation implements Paragraph, Element {
         this.position = element.getBoundingClientRect();
         this.fatherPosition = fatherElement.getBoundingClientRect();
         let specs: ParagraphSpecs = {
-            fontSize: Number(this.removeAnyCharactersInProperties(computedStyle.getPropertyValue("font-size")))
+            fontSize: Number(this.removeAnyCharactersInProperties(computedStyle.getPropertyValue("font-size"))),
         }
         this.fatherSize = { xSize: fatherOffsetWidth, ySize: fatherOffsetHeight };
         this.size = { xSize: offsetWidth, ySize: offsetHeight };

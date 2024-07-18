@@ -1,4 +1,4 @@
-import { AfterContentInit, Component } from "@angular/core";
+import { AfterContentInit, AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
 import { ParagraphElementImplementation } from "@voortex-modules";
 import { RenderableComponentImplementation } from "../base/base.component";
 
@@ -6,14 +6,19 @@ import { RenderableComponentImplementation } from "../base/base.component";
     selector: "app-paragraph",
     templateUrl: "paragraph.component.html",
 })
-export class ParagraphComponent extends RenderableComponentImplementation implements AfterContentInit {
+export class ParagraphComponent extends RenderableComponentImplementation implements AfterContentInit, AfterViewInit {
     shownText: string | null = null;
+    @ViewChild("test") testDiv!: ElementRef;
 
     ngAfterContentInit(): void {
         this.shownText = this.content?.content as string;
         this.setValidationFunction(this.validateParagraph);
     }
 
+    ngAfterViewInit(): void {
+        (this.content as ParagraphElementImplementation).lineHeigth = this.testDiv.nativeElement.offsetHeight;
+        this.testDiv.nativeElement.remove();
+    }
     //Validation
 
     validateParagraph() {
@@ -44,8 +49,22 @@ export class ParagraphComponent extends RenderableComponentImplementation implem
         
         if (!validateIfIsNecessaryBreakingText()) return false;
 
-        console.log("É necessário quebrar o texto!");
-        
+        //Font -> Times new Roman
+        //FontSize -> 16
+
+        console.group("Validation");
+        //Utilizado para saber o Tamanho em Y restante para a folha branca
+        const remainingFatherSpace = paragraph.fatherSize!.ySize - (paragraph.position.y - paragraph.fatherPosition!.y);
+        console.log(remainingFatherSpace); // 512
+        const mediumCharHeight = 1.2 * paragraph.paragraphSpecs.fontSize;
+        const mediumCharWidth = 0.6 * paragraph.paragraphSpecs.fontSize; 
+        const quantityOfCharsInALine = paragraph.size.xSize/mediumCharWidth;
+        console.log("mediumCharHeight", mediumCharHeight); //19.2
+        console.log("mediumCharWidth", mediumCharWidth); //9.6
+        console.log("quantityOfCharsInALine", quantityOfCharsInALine); //82.708...
+        console.log("quantidade de linhas restantes permitidas", remainingFatherSpace/mediumCharHeight); // 26.614583333333336
+
+        console.groupEnd();
         return true;
     }
 }
