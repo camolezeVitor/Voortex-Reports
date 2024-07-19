@@ -6,4 +6,7 @@ import { RenderableReport } from "../elements/report-model";
 })
 export class ReportService {
     public report = signal<null | RenderableReport>(null);
+
+    constructor() {
+    }
 }

@@ -9,7 +9,7 @@ export class RenderableReport {
     canDownload!: boolean;
     presetStyle!: unknown;
     reportState!: ReportState;
-    content!: Map<string, WritableSignal<RenderableReportElement>>;
+    content: Map<string, WritableSignal<RenderableReportElement>> = new Map<string, WritableSignal<RenderableReportElement>>();
 
     constructor(report: ReportImplementation) {
         this.name = report.name;
