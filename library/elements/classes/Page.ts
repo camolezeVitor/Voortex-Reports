@@ -4,9 +4,9 @@ import { PageSize } from "../types/utils/Page-Sizes";
 
 export class PageImplementation implements ReportElement {
     id: string = "PG";
-    pageSize: PageSize;
+    pageSize!: PageSize;
     styles?: Partial<CSSStyleDeclaration> | undefined;
-    content: Array<ReportElement>;
+    content!: Array<ReportElement>;
 
     constructor (reportProps: PageProps) {
         Object.keys(reportProps).forEach(k =>

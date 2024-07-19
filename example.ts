@@ -2,7 +2,7 @@ import { createReport, Page, Paragraph } from "./library/core/Voortex-Core";
 
 let pessoas: Array<{nome: string, cpf: string}> = []
 
-export const REPORT = createReport({
+export const TEST_REPORT = createReport({
     name: "Relatorio com lista de Pessoas",
     content: [
         Page({pageSize: "A4", 

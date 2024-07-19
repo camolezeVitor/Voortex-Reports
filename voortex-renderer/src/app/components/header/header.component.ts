@@ -1,5 +1,5 @@
-import { Component, Input } from "@angular/core";
-import { Report } from "@voortex-modules";
+import { Component } from "@angular/core";
+import { RenderableReport } from "../../elements/report-model";
 
 @Component({
     selector: "app-header",
@@ -7,7 +7,7 @@ import { Report } from "@voortex-modules";
     styleUrl: "header.component.css" 
 })
 export class HeaderComponent {
-    @Input() report!: Report;
+    report!: RenderableReport;
 
     public printScreen() {
         let docWindow = window;

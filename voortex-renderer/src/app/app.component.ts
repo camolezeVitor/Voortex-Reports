@@ -1,25 +1,19 @@
-import { Component } from '@angular/core';
-import { Element, Report } from "@voortex-modules";
-import { REPORT } from "../../../example";
+import { Component, OnInit } from '@angular/core';
+import { ReportImplementation } from '@voortex-modules';
+import { TEST_REPORT } from "../../../example";
+import { RenderableReport } from './elements/report-model';
+import { ReportService } from './services/report.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['app.component.css']
 })
-export class AppComponent {
-  public report!: Report;
+export class AppComponent implements OnInit{
+  public report!: ReportImplementation;
+  constructor(private reportService: ReportService) {}
 
-  constructor () {
-    this.report = REPORT;
-    setTimeout(() => {
-      this.report.content.forEach(pageElement => {
-        console.group(pageElement.id);
-        (pageElement.content as Array<Element>).forEach(element => {
-          element!.validationFunction!();
-        })
-        console.groupEnd();
-      })
-    }, 5000);
+  ngOnInit(): void {
+    this.reportService.report.update(() => new RenderableReport(TEST_REPORT));
   }
 }
