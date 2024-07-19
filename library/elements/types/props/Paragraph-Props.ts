@@ -1,3 +1,4 @@
-import { Paragraph } from "../../interfaces/Paragraph-Protocol";
-
-export type ParagraphProps = Paragraph;
+export type ParagraphProps = {
+    content: string
+    style?: Partial<CSSStyleDeclaration>
+};

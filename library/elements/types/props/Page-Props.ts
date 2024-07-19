@@ -1,3 +1,8 @@
-import { Page } from "../../interfaces/Page-Protocol";
+import { ReportElement } from "../../interfaces/Element-Protocol"
+import { PageSize } from "../utils/Page-Sizes"
 
-export type PageProps = Page;
+export type PageProps = {
+    pageSize: PageSize
+    content: Array<ReportElement>
+    style?: Partial<CSSStyleDeclaration>
+}

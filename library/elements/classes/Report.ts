@@ -1,12 +1,10 @@
-import { Element } from "../interfaces/Element-Protocol";
-import { Report } from "../interfaces/Report-Protocol";
 import { ReportProps } from "../types/props/Report-Props";
 
-export class ReportImplementation implements Report {
+export class ReportImplementation implements ReportProps {
     name!: string | String | Symbol;
     canDownload: boolean = true;
     presetStyles?: unknown;
-    content!: Array<Element>;
+    content: Array<Element>;
 
     constructor (reportProps: ReportProps) {
         Object.keys(reportProps).forEach(k =>

@@ -1,3 +1,8 @@
-import { Report } from "../../interfaces/Report-Protocol";
+import { ReportElement } from "../../interfaces/Element-Protocol";
 
-export type ReportProps = Report;
+export type ReportProps = {
+    name: string | String | Symbol;
+    content: Array<ReportElement>;
+    canDownload?: boolean;
+    presetStyles?: unknown;
+};
