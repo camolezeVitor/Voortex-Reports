@@ -17,7 +17,8 @@ export class RenderableReport {
         this.presetStyle = report.presetStyles || null;
         this.reportState = ReportState.RENDERING;
         report.content.forEach((element, _) => {
-            this.content.set(`${element.id}-${_}`, signal(ReportElementFactory.convertToRenderable(element)))
+            const path: string = `${element.id}[${_}]`;
+            this.content.set(path, signal(ReportElementFactory.convertToRenderable(element, this, path)))
         });
     }
 }

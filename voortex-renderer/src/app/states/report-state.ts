@@ -1,5 +1,5 @@
 export enum ReportState {
-    RENDERING = 0,
-    TESTING = 1,
-    FINISHED = 2,
+    RENDERING = "RENDERING",
+    TESTING = "TESTING",
+    FINISHED = "FINISHED",
 }

@@ -21,3 +21,9 @@ p {
 .voortex-propaganda {
   text-align: center;
 }
+
+@media print {
+  :host {
+    display: none;
+  }
+}

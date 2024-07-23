@@ -16,10 +16,12 @@ export class AppComponent implements OnInit{
 
     effect(() => {
       this.report = this.reportService.report;
+      console.log(this.report());
     }) 
   }
 
   ngOnInit(): void {
     this.reportService.report.update(() => new RenderableReport(TEST_REPORT));
+    console.log(this.reportService.accessElementByPath("PG[0]"));
   }
 }

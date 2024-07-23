@@ -10,12 +10,17 @@ export class RenderableParagraph implements RenderableReportElement {
     id!: string;
     styles?: Partial<CSSStyleDeclaration> | undefined;
     content?: string | String;
-    
-    constructor(paragraph: ParagraphImplementation) {
+    fatherElement!: RenderableReportElement;
+    path!: string;
+
+    constructor(paragraph: ParagraphImplementation, fatherElement: RenderableReportElement, path: string) {
         this.renderedElementUuid = crypto.randomUUID();
         this.elementState = ReportElementState.RENDER_TEST;
         this.styles = paragraph.styles;
         this.id = paragraph.id
         this.content = paragraph.content;
+        this.fatherElement = fatherElement;
+        this.path = path;
     }
+
 }

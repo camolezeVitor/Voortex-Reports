@@ -1,10 +1,12 @@
-<!-- <header>
-  <section class="report-id">
-    <p>{{report.name}}</p>
-  </section>
-  <section class="button-list">
-    @if (report.canDownload) {
-      <button class="header-button" (click)="printScreen()">Print</button>
-    }
-  </section>
-</header> -->
+@if (renderReport != null) {
+  <header>
+    <section class="report-id">
+      <p>{{renderReport.name}}</p>
+    </section>
+    <section class="button-list">
+      @if (renderReport.canDownload) {
+        <button class="header-button" (click)="printScreen()">Print</button>
+      }
+    </section>
+  </header>  
+}

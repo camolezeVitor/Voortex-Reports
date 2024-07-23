@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, effect, WritableSignal } from "@angular/core";
 import { RenderableReport } from "../../elements/report-model";
+import { ReportService } from "../../services/report.service";
 
 @Component({
     selector: "app-header",
@@ -7,7 +8,17 @@ import { RenderableReport } from "../../elements/report-model";
     styleUrl: "header.component.css" 
 })
 export class HeaderComponent {
-    report!: RenderableReport;
+    report!: WritableSignal<RenderableReport | null>;
+    renderReport!: RenderableReport;
+
+    constructor(private reportService: ReportService) {
+        effect(() => {
+            this.report = reportService.report;
+            if (this.report() != null) {
+                this.renderReport = this.report()!;
+            }
+        })
+    }
 
     public printScreen() {
         let docWindow = window;
