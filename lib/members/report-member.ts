@@ -1,6 +1,7 @@
 import { Member } from "../proto/member";
+import { NonIdMember } from "../proto/non-id-member";
 
-export type ReportProps = Omit<Member, 'id'> & {
+export type ReportProps = NonIdMember & {
     name: string;
     downloadable?: boolean;
     presetStyles?: Map<string, Partial<CSSStyleDeclaration>>
@@ -20,5 +21,5 @@ export class ReportMember implements Member {
         this.name = props.name;
         this.downloadable = true || props.downloadable;
         this.presetStyles = props.presetStyles;
-    } 
+    }
 }
