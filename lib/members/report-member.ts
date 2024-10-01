@@ -1,6 +1,6 @@
 import { Member } from "../proto/member";
 
-export type ReportProps = Member & {
+export type ReportProps = Omit<Member, 'id'> & {
     name: string;
     downloadable?: boolean;
     presetStyles?: Map<string, Partial<CSSStyleDeclaration>>
