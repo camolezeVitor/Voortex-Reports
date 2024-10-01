@@ -1,7 +1,7 @@
 import { Member } from "../proto/member";
-import { NonIdMember } from "../proto/non-id-member";
+import { MemberWithoutId } from "../proto/member-without-id";
 
-export type PageProps = NonIdMember & {};
+export type PageProps = MemberWithoutId & {};
 
 export class PageMember implements Member {
     id: string = "PAGE";

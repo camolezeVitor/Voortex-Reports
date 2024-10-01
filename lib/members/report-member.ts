@@ -1,7 +1,7 @@
 import { Member } from "../proto/member";
-import { NonIdMember } from "../proto/non-id-member";
+import { MemberWithoutId } from "../proto/member-without-id";
 
-export type ReportProps = NonIdMember & {
+export type ReportProps = MemberWithoutId & {
     name: string;
     downloadable?: boolean;
     presetStyles?: Map<string, Partial<CSSStyleDeclaration>>
